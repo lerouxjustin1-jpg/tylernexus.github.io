@@ -7,22 +7,37 @@
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:Segoe UI,Arial;
-background:#0c0c0c;
+background:linear-gradient(-45deg,#0c0c0c,#141414,#1c1c1c,#111);
+background-size:400% 400%;
+animation:bgmove 15s ease infinite;
 color:white;
+}
+
+@keyframes bgmove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
 /* NAVBAR */
 
 nav{
-background:#121212;
-padding:18px;
+position:sticky;
+top:0;
+background:#111;
 display:flex;
 justify-content:center;
 gap:40px;
+padding:16px;
 border-bottom:1px solid #222;
+z-index:10;
 }
 
 nav a{
@@ -32,40 +47,46 @@ font-weight:600;
 }
 
 nav a:hover{
-color:#ff3c3c;
+color:#ff4444;
 }
 
-/* HEADER */
+/* HERO */
 
-header{
+.hero{
 text-align:center;
-padding:70px 20px;
+padding:80px 20px;
 }
 
-header img{
-width:150px;
+.hero img{
+width:140px;
 border-radius:20px;
+box-shadow:0 0 25px rgba(255,60,60,0.5);
 }
 
-header h1{
+.hero h1{
 font-size:48px;
-margin-top:15px;
+margin:15px 0;
 }
 
-/* SECTION */
+.hero p{
+color:#aaa;
+font-size:18px;
+}
+
+/* SECTIONS */
 
 .section{
 max-width:1200px;
 margin:auto;
-padding:40px 20px;
+padding:60px 20px;
 }
 
 .section h2{
-margin-bottom:25px;
+margin-bottom:30px;
 font-size:28px;
 }
 
-/* CARD GRID */
+/* GRID */
 
 .grid{
 display:grid;
@@ -73,19 +94,19 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-/* CARD */
+/* CARDS */
 
 .card{
 background:#161616;
 border-radius:10px;
 overflow:hidden;
-transition:0.25s;
 border:1px solid #222;
+transition:0.25s;
 }
 
 .card:hover{
 transform:translateY(-6px);
-border-color:#ff3c3c;
+box-shadow:0 0 20px rgba(255,60,60,0.4);
 }
 
 .card img{
@@ -100,36 +121,64 @@ padding:15px;
 
 .card h3{
 margin:0;
-font-size:18px;
 }
 
 .card p{
-font-size:14px;
 color:#bbb;
-margin-top:6px;
+font-size:14px;
 }
 
+/* BUTTON */
+
 button{
-margin-top:10px;
 background:#ff3c3c;
 border:none;
 padding:10px 18px;
 border-radius:6px;
 color:white;
 cursor:pointer;
+margin-top:10px;
 }
 
 button:hover{
 background:#ff5555;
 }
 
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.stat{
+background:#161616;
+padding:25px;
+border-radius:10px;
+text-align:center;
+}
+
+.stat h3{
+font-size:36px;
+margin:0;
+}
+
+/* VIDEO */
+
+.video{
+display:flex;
+justify-content:center;
+margin-top:30px;
+}
+
 /* FOOTER */
 
 footer{
-margin-top:60px;
-padding:40px;
 background:#111;
 text-align:center;
+padding:40px;
+margin-top:60px;
 }
 
 </style>
@@ -141,20 +190,53 @@ text-align:center;
 <nav>
 
 <a href="#series">Series</a>
-<a href="#support">Support</a>
+<a href="#videos">Videos</a>
+<a href="#stats">Stats</a>
 <a href="#community">Community</a>
 
 </nav>
 
-<header>
+
+<div class="hero">
 
 <img src="icon.png">
 
 <h1>TylerNexus</h1>
 
-<p>Gaming series, Roblox experiences, and creator projects.</p>
+<p>Roblox gameplay, challenges, and creator content.</p>
 
-</header>
+</div>
+
+
+<div class="section" id="stats">
+
+<h2>Channel Stats</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h3>236</h3>
+<p>Videos</p>
+</div>
+
+<div class="stat">
+<h3>21.7M</h3>
+<p>Views</p>
+</div>
+
+<div class="stat">
+<h3>140K</h3>
+<p>Subscribers</p>
+</div>
+
+<div class="stat">
+<h3>838M</h3>
+<p>Game Visits</p>
+</div>
+
+</div>
+
+</div>
 
 
 <div class="section" id="series">
@@ -172,14 +254,10 @@ text-align:center;
 
 <h3>Forsaken</h3>
 
-<p>
-Difficulty: Hard<br>
-Status: Active<br>
-Length: Long
-</p>
+<p>Difficulty: Hard<br>Status: Active<br>Length: Long</p>
 
 <a href="https://youtube.com/playlist?list=PLj29Em7ZCZJUsYBs0WkDngR0SI8g--0u5">
-<button>Watch Series</button>
+<button>Watch</button>
 </a>
 
 </div>
@@ -195,14 +273,10 @@ Length: Long
 
 <h3>Dandy's World</h3>
 
-<p>
-Difficulty: Medium<br>
-Status: Work in Progress<br>
-Length: Long
-</p>
+<p>Difficulty: Medium<br>Status: Work In Progress</p>
 
 <a href="https://youtube.com/playlist?list=PLj29Em7ZCZJUJ10ngekaBoxB1Ygu9nJYu">
-<button>Watch Series</button>
+<button>Watch</button>
 </a>
 
 </div>
@@ -218,14 +292,10 @@ Length: Long
 
 <h3>You VS Homer</h3>
 
-<p>
-Difficulty: Moderate<br>
-Status: Work in Progress<br>
-Length: Medium
-</p>
+<p>Difficulty: Moderate<br>Status: Work In Progress</p>
 
 <a href="https://youtube.com/playlist?list=PLj29Em7ZCZJWegBQGym1Q7Eo_hQVv-fbG">
-<button>Watch Series</button>
+<button>Watch</button>
 </a>
 
 </div>
@@ -238,17 +308,18 @@ Length: Medium
 </div>
 
 
-<div class="section" id="support">
+<div class="section" id="videos">
 
-<h2>Support the Channel</h2>
+<h2>Featured Video</h2>
 
-<p>
-Support future projects and content by purchasing access.
-</p>
+<div class="video">
 
-<a href="https://www.roblox.com/catalog/87778836038607/Buy-access">
-<button>Buy Access</button>
-</a>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/videoseries?list=PLj29Em7ZCZJUsYBs0WkDngR0SI8g--0u5"
+frameborder="0"
+allowfullscreen></iframe>
+
+</div>
 
 </div>
 
@@ -257,10 +328,7 @@ Support future projects and content by purchasing access.
 
 <h2>Community</h2>
 
-<p>
-Join the official Discord server to get updates,
-suggest ideas, and talk with other viewers.
-</p>
+<p>Join the Discord server to get updates and chat with the community.</p>
 
 <a href="https://discord.gg/sj4q7Kbu4G">
 <button>Join Discord</button>
@@ -271,9 +339,10 @@ suggest ideas, and talk with other viewers.
 
 <footer>
 
-© 2026 TylerNexus
+<p>© 2026 TylerNexus</p>
 
 </footer>
+
 
 </body>
 </html>
